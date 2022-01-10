@@ -3,7 +3,7 @@ window.onload = function(){
     //Load JQuery
     var script = document.createElement("script")
     script.type = "text/javascript";
-    script.src = "./jquery-3.6.0.min.js";
+    script.src = "./js/jquery-3.6.0.min.js";
     document.body.appendChild(script);
 
     for(i=1;i<=64;i++){
