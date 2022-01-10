@@ -12,7 +12,6 @@ window.onload = function(){
     ResetOsero()
 }
 
-
 var Osero = []  //black:true,white:false,none:null
 var CanSetOsero = false
 const MESS_BLACK = "Black turn"
@@ -52,13 +51,13 @@ function ResetOsero(){
         var ctx = canvas[i].getContext("2d") 
         ctx.clearRect(0, 0, 100, 100);
     }
-    DrawOsero("can28","black")
+    DrawOsero("can28","black",false)
     Osero[3][3] = true
-    DrawOsero("can29","white")
+    DrawOsero("can29","white",false)
     Osero[3][4] = false
-    DrawOsero("can36","white")
+    DrawOsero("can36","white",false)
     Osero[4][3] = false
-    DrawOsero("can37","black")
+    DrawOsero("can37","black",false)
     Osero[4][4] = true
 
     CanSetOsero = false
@@ -152,6 +151,32 @@ function PreCheck(){
 }
 
 /**
+ * Mouse Over the Osero
+ * */
+ function MouseOverOsero(){
+  if(CanSetOsero){
+    if (CheckExecOsero(event.target.id,GetColor(),true)){
+        DrawOsero(event.target.id,GetColor(),false)
+    }
+  }
+}
+/**
+ * Mouse Out the Osero
+ * */
+ function MouseOutOsero(){
+    var canvasIndex = event.target.id.replace("can","")
+
+    var ctx = canvas[canvasIndex-1].getContext("2d") 
+
+    var num = Number(canvasIndex)
+    var y = Math.ceil(num/8) -1 
+    var x = (num-1) % 8
+    if(Osero[y][x] == null){
+        ctx.clearRect(0, 0, 100, 100);
+    }
+}
+
+/**
  * Put Osero (Click a paticular canvas)
  * */
 function PutOsero(){
@@ -181,10 +206,15 @@ function ChangeTurnInfo(){
  * Draw Canvas(Osero)
  * @param id
  * @param color
+ * @param isTransparent
  * */
-function DrawOsero(id,color){
+function DrawOsero(id,color,isTransparent){
     var ctx = canvas[id.replace("can","")-1].getContext("2d")
     ctx.beginPath();
+    
+    if(isTransparent){
+        ctx.globalAlpha = 0.01;
+    }
     ctx.arc(25, 25, 25, 0, 2 * Math.PI);
     ctx.fillStyle = color;
     ctx.fill() ;
@@ -229,7 +259,7 @@ function CheckExecOsero(id,color,isCheckOnly){
             for(var j=0;j<=count;j++){
                 if(!isCheckOnly){
                     Osero[y-j][x] = isBlack
-                    DrawOsero("can"+(num-j*8),color)
+                    DrawOsero("can"+(num-j*8),color,false)
                     OseroSetAudio.play();       
                     sleep(100);           
                 }
@@ -251,7 +281,7 @@ function CheckExecOsero(id,color,isCheckOnly){
             for(var j=0;j<=count;j++){
                 if(!isCheckOnly){
                     Osero[y+j][x] = isBlack
-                    DrawOsero("can"+(num+j*8),color)
+                    DrawOsero("can"+(num+j*8),color,false)
                     OseroSetAudio.play();
                     sleep(100);       
                 }
@@ -273,7 +303,7 @@ function CheckExecOsero(id,color,isCheckOnly){
             for(var j=0;j<=count;j++){
                 if(!isCheckOnly){
                     Osero[y][x-j] = isBlack
-                    DrawOsero("can"+(num-j),color)
+                    DrawOsero("can"+(num-j),color,false)
                     OseroSetAudio.play();
                     sleep(100);       
                 }
@@ -295,7 +325,7 @@ function CheckExecOsero(id,color,isCheckOnly){
             for(var j=0;j<=count;j++){
                 if(!isCheckOnly){
                     Osero[y][x+j] = isBlack
-                    DrawOsero("can"+(num+j),color)
+                    DrawOsero("can"+(num+j),color,false)
                     OseroSetAudio.play();
                     sleep(100);       
     
@@ -318,7 +348,7 @@ function CheckExecOsero(id,color,isCheckOnly){
             for(var j=0;j<=count;j++){
                 if(!isCheckOnly){
                     Osero[y-j][x+j] = isBlack
-                    DrawOsero("can"+(num-7*j),color)
+                    DrawOsero("can"+(num-7*j),color,false)
                     OseroSetAudio.play();
                     sleep(100);       
 
@@ -341,7 +371,7 @@ function CheckExecOsero(id,color,isCheckOnly){
             for(var j=0;j<=count;j++){
                 if(!isCheckOnly){
                     Osero[y-j][x-j] = isBlack
-                    DrawOsero("can"+(num-9*j),color)
+                    DrawOsero("can"+(num-9*j),color,false)
                     OseroSetAudio.play();
                     sleep(100);       
                 }
@@ -362,7 +392,7 @@ function CheckExecOsero(id,color,isCheckOnly){
             for(var j=0;j<=count;j++){
                 if(!isCheckOnly){
                     Osero[y+j][x-j] = isBlack
-                    DrawOsero("can"+(num+7*j),color)
+                    DrawOsero("can"+(num+7*j),color,false)
                     OseroSetAudio.play();
                     sleep(100);       
                 }
@@ -384,7 +414,7 @@ function CheckExecOsero(id,color,isCheckOnly){
             for(var j=0;j<=count;j++){
                 if(!isCheckOnly){
                     Osero[y+j][x+j] = isBlack
-                    DrawOsero("can"+(num+9*j),color)
+                    DrawOsero("can"+(num+9*j),color,false)
                     OseroSetAudio.play();
                     sleep(100);       
                 }
