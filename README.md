@@ -7,5 +7,4 @@ Javascriptの学んだことのアウトプットの機会に作成したため�
 
 ※CPU対戦用のロジックはまだ未実装です。
 
-下記のURLにて公開しております。
 https://oserogame.herokuapp.com/
