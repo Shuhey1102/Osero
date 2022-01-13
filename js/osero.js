@@ -455,7 +455,7 @@ function EndProcess(){
         for(var j=0;j<8;j++){
             if(Osero[i][j]==null){
                 continue;
-            }else if(Osero[i][i]==true){
+            }else if(Osero[i][j]==true){
                 blackCount++;
             }else{
                 whiteCount++;
