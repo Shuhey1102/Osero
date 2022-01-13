@@ -473,6 +473,8 @@ function EndProcess(){
         document.getElementById("Player2img").src = document.getElementById("Player2img").src.replace("init","win")            
     }
     
+    sleep(100); 
+
     alert("End Game\n\nBlack:"+blackCount+"  White:"+whiteCount);
     CanSetOsero = false;
     
