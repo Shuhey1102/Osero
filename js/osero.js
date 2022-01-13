@@ -87,6 +87,8 @@ function ResetOsero(){
     document.getElementById("StartButton").disabled = false
     document.getElementById("Player1img").src = "../Osero/image/boy_init.png"        
     document.getElementById("Player2img").src = "../Osero/image/girl_init.png"
+    document.getElementById("Player1").value = "Player"
+    document.getElementById("Player2").values = "Player"
 
 }
 function PlayerInfo(){
