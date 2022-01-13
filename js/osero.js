@@ -27,6 +27,24 @@ $('.option dt').on('click',function(){
     $(this).next().slideToggle();    
 });
 
+function SelectPlayer(){
+    var Player1 = document.getElementById("Player1").value
+    var Player2 = document.getElementById("Player2").value 
+    console.log("------")
+
+    if(Player1=="CPU"){
+        document.getElementById("Player1img").src = document.getElementById("Player1img").src.replace("boy","robo")
+    }else{
+        document.getElementById("Player1img").src = document.getElementById("Player1img").src.replace("robo","boy")        
+    }
+    if(Player2=="CPU"){
+        document.getElementById("Player2img").src = document.getElementById("Player2img").src.replace("girl","robo")
+    }else{
+        document.getElementById("Player2img").src = document.getElementById("Player2img").src.replace("robo","girl")        
+    }
+
+}
+
 function StartOsero(){
     CanSetOsero = true
     Player = "Player1"
@@ -74,16 +92,7 @@ function ResetOsero(){
 function PlayerInfo(){
     var Player1 = document.getElementById("Player1").value
     var Player2 = document.getElementById("Player2").value 
-    if(Player1=="CPU"){
-        document.getElementById("Player1img").src = document.getElementById("Player1img").src.replace("boy","robo")
-    }else{
-        document.getElementById("Player1img").src = document.getElementById("Player1img").src.replace("robo","boy")        
-    }
-    if(Player2=="CPU"){
-        document.getElementById("Player2img").src = document.getElementById("Player2img").src.replace("girl","robo")
-    }else{
-        document.getElementById("Player2img").src = document.getElementById("Player2img").src.replace("robo","girl")        
-    }
+
     alert("Game Starts!\n\nPlayer1 : "+Player1+"\nPlayer2 : "+Player2)
 }
 
@@ -169,7 +178,7 @@ function PreCheck(){
     var ctx = canvas[canvasIndex-1].getContext("2d") 
 
     var num = Number(canvasIndex)
-    var y = Math.ceil(num/8) -1 
+    var y = Math.ceil(num/8) - 1 
     var x = (num-1) % 8
     if(Osero[y][x] == null){
         ctx.clearRect(0, 0, 100, 100);
