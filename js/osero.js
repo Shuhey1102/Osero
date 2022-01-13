@@ -1,17 +1,3 @@
-window.onload = function(){
-    
-    //Load JQuery
-    var script = document.createElement("script")
-    script.type = "text/javascript";
-    script.src = "./js/jquery-3.6.0.min.js";
-    document.body.appendChild(script);
-
-    for(i=1;i<=64;i++){
-        canvas.push(document.getElementById("can"+i))
-    }
-    ResetOsero()
-}
-
 var Osero = []  //black:true,white:false,none:null
 var CanSetOsero = false
 const MESS_BLACK = "Black turn"
@@ -20,6 +6,22 @@ var Player = ""
 var canvas = []
 var OseroSetAudio = new Audio();
 OseroSetAudio.src = "./mp3/Osero.mp3"
+
+for(i=1;i<=64;i++){
+    canvas.push(document.getElementById("can"+i))
+}
+
+window.onload = function(){
+    
+    //Load JQuery
+    var script = document.createElement("script")
+    script.type = "text/javascript";
+    script.src = "./js/jquery-3.6.0.min.js";
+    document.body.appendChild(script);
+
+    ResetOsero()
+}
+
 
 //select Option
 $('.option dd').hide();
@@ -387,9 +389,10 @@ function CheckExecOsero(id,color,isCheckOnly){
                     sleep(100);       
                 }
             }
-            count = 0
             isSet = true
         }
+        count = 0
+        
         //bottom left side check
         for(i=1;i<=7-y;i++){
             if(Osero[y+i][x-i]==isBlack||Osero[y+i][x-i]==null)
