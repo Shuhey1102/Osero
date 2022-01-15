@@ -9,4 +9,4 @@ Javascriptの学んだことのアウトプットの機会に、行き当たり�
 
 ※CPU対戦用のロジックはまだ未実装です。
 
-https://oserogame.herokuapp.com/
+https://oseroapp.herokuapp.com/
