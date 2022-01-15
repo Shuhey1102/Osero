@@ -12,7 +12,7 @@ for(i=1;i<=64;i++){
 }
 
 window.onload = function(){
-    
+
     //Load JQuery
     var script = document.createElement("script")
     script.type = "text/javascript";
@@ -68,6 +68,9 @@ function ResetOsero(){
 
     //Initial Set
     for(i=0;i<64;i++){
+        if(i==27||i==28||i==35||i==36){
+            continue;
+        }
         var ctx = canvas[i].getContext("2d") 
         ctx.clearRect(0, 0, 100, 100);
     }
