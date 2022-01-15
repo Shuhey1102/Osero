@@ -22,6 +22,7 @@
             padding-right:5px;
         }
         dd ul{
+            display:none;
             list-style: none;
             padding: .5em;
         }
@@ -49,13 +50,8 @@
             border-radius: 10px;
             margin-left:10px
         }
-        .messageStyle{
-            font-size: 20px; 
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
     </style>
-    <title>Osero</title>
+    <title>Revrsi</title>
     </head>
     <body style = "margin-left:70px;background-color:gainsboro; width:800px;height:1000px;">
     <div>
@@ -90,23 +86,20 @@
                 </dd>
             </dl>   
         </div>
-        <div style="margin-bottom: 10px;">
+        <div style="margin-bottom: 20px;">
             <button id ="StartButton" type="button" class="btn btn-primary btn-lg" onclick=StartOsero()>Start</button>
             <button type="button" class="btn btn-secondary btn-lg" onclick=ResetOsero()>Reset</button>
-        </div>
-        <div id="messageStyle">
-            <div class = "messageStyle">
+            <div id="messageStyle" style = "display:none;font-size: 20px;margin-top:10px;margin-left:100px;margin-bottom: 10px;">
                 Message&nbsp;:&nbsp;
                 <span id = "message"></span>
-            </div>    
+            </div>        
         </div>
-        <div id = "PlayerScreen"class="PlayerScreen">
+        <div id ="PlayerScreen"class="PlayerScreen">
             <h3>
               <span class="Player1">Player1&nbsp;&nbsp;<img id="Player1img" src="../Osero/image/boy_init.png" width="40px" height="60px">&nbsp;<img src="../Osero/image/osero_black.png" width="50px" height="30px"></span>
               <span class="Player2">Player2&nbsp;&nbsp;<img id="Player2img" src="../Osero/image/girl_init.png" width="40px" height="60px">&nbsp;<img src="../Osero/image/Osero_white.jpg" width="50px" height="30px"></span>
              </h3>               
          </div>  
-    
         <div style="margin-top: 10px;">
             <canvas id ="can1" width="50" height = "50" class = canvas onclick = PutOsero() onmouseover = MouseOverOsero() onmouseout = MouseOutOsero()>
             </canvas>
