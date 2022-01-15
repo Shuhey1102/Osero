@@ -67,10 +67,6 @@ function ResetOsero(){
     }
 
     //Initial Set
-    for(i=0;i<64;i++){
-        var ctx = canvas[i].getContext("2d") 
-        ctx.clearRect(0, 0, 100, 100);
-    }
     DrawOsero("can28","black",false)
     Osero[3][3] = true
     DrawOsero("can29","white",false)
@@ -79,6 +75,14 @@ function ResetOsero(){
     Osero[4][3] = false
     DrawOsero("can37","black",false)
     Osero[4][4] = true
+
+    for(i=0;i<64;i++){
+        var ctx = canvas[i].getContext("2d") 
+        if(i==27||i==28||i==35||i==36){
+            continue;
+        }
+        ctx.clearRect(0, 0, 100, 100);
+    }
 
     CanSetOsero = false
     document.getElementById('PlayerScreen').style.display = "none";
