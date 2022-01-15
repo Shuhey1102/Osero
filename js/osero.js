@@ -11,7 +11,7 @@ for(i=1;i<=64;i++){
     canvas.push(document.getElementById("can"+i))
 }
 
-window.onload = function(){
+window.addEventListener('DOMContentLoaded', (event) => {
 
     //Load JQuery
     var script = document.createElement("script")
@@ -20,7 +20,7 @@ window.onload = function(){
     document.body.appendChild(script);
 
     ResetOsero()
-}
+});
 
 
 //select Option
