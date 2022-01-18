@@ -1,3 +1,13 @@
+body{
+    margin-left:70px;
+    background-color:gainsboro; 
+    width: 500px;
+    height: 800px;
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
 .canvas{
     background-color:limegreen;
     border:black solid 2px;
@@ -23,6 +33,7 @@ dd ul{
     margin: none;
 }
 .Player1{
+    margin-left:auto;
     padding-right: 10px;
     padding-left: 7px;
     padding-top: 15px;
@@ -32,7 +43,8 @@ dd ul{
     border-radius: 10px
 
 }
-.Player2{
+.Player2{    
+    margin-left:auto;
     padding-right: 10px;
     padding-left: 7px;
     padding-top: 15px;
@@ -40,7 +52,6 @@ dd ul{
     background-color:#ffff;
     border:1px solid;  
     border-radius: 10px;
-    margin-left:10px
 }
 .loading{
     position: absolute;
