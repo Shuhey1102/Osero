@@ -7,10 +7,10 @@ var canvas = []
 var OseroSetAudio = new Audio();
 OseroSetAudio.src = "./mp3/Osero.mp3"
 
+
 for(i=1;i<=64;i++){
     canvas.push(document.getElementById("can"+i))
 }
-
 
 $(() =>{
     ResetOsero()
@@ -24,6 +24,29 @@ $(window).on("load",() =>{
 $('.option dd').hide();
 $('.option dt').on('click',function(){
     $(this).next().slideToggle();    
+});
+
+$('.canvas').on('click',function(){
+    PutOsero();    
+});
+$('.canvas').on('mouseover',function(){
+    if(CanSetOsero){
+        if (CheckExecOsero(event.target.id,GetColor(),true)){
+            DrawOsero(event.target.id,GetColor(),false)
+        }
+      }
+});
+$('.canvas').on('mouseout',function(){
+    var canvasIndex = event.target.id.replace("can","")
+  
+    var ctx = canvas[canvasIndex-1].getContext("2d") 
+
+    var num = Number(canvasIndex)
+    var y = Math.ceil(num/8) - 1 
+    var x = (num-1) % 8
+    if(Osero[y][x] == null){
+        ctx.clearRect(0, 0, 100, 100);
+    }  
 });
 
 function SelectPlayer(){
@@ -162,32 +185,6 @@ function PreCheck(){
 
     CanSetOsero = true;
     
-}
-
-/**
- * Mouse Over the Osero
- * */
- function MouseOverOsero(){
-  if(CanSetOsero){
-    if (CheckExecOsero(event.target.id,GetColor(),true)){
-        DrawOsero(event.target.id,GetColor(),false)
-    }
-  }
-}
-/**
- * Mouse Out the Osero
- * */
- function MouseOutOsero(){
-    var canvasIndex = event.target.id.replace("can","")
-
-    var ctx = canvas[canvasIndex-1].getContext("2d") 
-
-    var num = Number(canvasIndex)
-    var y = Math.ceil(num/8) - 1 
-    var x = (num-1) % 8
-    if(Osero[y][x] == null){
-        ctx.clearRect(0, 0, 100, 100);
-    }
 }
 
 /**
