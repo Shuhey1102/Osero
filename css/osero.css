@@ -1,0 +1,56 @@
+.canvas{
+    background-color:limegreen;
+    border:black solid 2px;
+    
+}
+dt{
+    border:1px solid;
+    padding: 5px;
+    width: 462px;
+}
+dt:before{
+    content:">";
+    font-size:.8em;
+    padding-right:5px;
+}
+dd ul{
+    display:none;
+    list-style: none;
+    padding: .5em;
+}
+.PlayerScreen{
+    display: none;
+    margin: none;
+}
+.Player1{
+    padding-right: 10px;
+    padding-left: 7px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    background-color:#ffff;
+    border:1px solid;
+    border-radius: 10px
+
+}
+.Player2{
+    padding-right: 10px;
+    padding-left: 7px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    background-color:#ffff;
+    border:1px solid;  
+    border-radius: 10px;
+    margin-left:10px
+}
+.loading{
+    position: absolute;
+    top:50%;
+    left:50%;
+}
+.loading img{
+    width: 25%;
+    height: 25%;
+}
+.loading.isReady{
+    display: none;
+}
