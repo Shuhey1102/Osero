@@ -10,10 +10,15 @@ OseroSetAudio.src = "./mp3/Osero.mp3"
 for(i=1;i<=64;i++){
     canvas.push(document.getElementById("can"+i))
 }
+
+
 $(() =>{
     ResetOsero()
-})
+});
 
+$(window).on("load",() =>{
+    $('.loading').addClass("isReady");   
+});
 
 //select Option
 $('.option dd').hide();
