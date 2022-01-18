@@ -50,13 +50,25 @@
             border-radius: 10px;
             margin-left:10px
         }
+        .loading{
+            position: absolute;
+            top:50%;
+            left:50%;
+        }
+        .loading img{
+            width: 25%;
+            height: 25%;
+        }
+        .loading.isReady{
+            display: none;
+        }
     </style>
     <title>Revrsi</title>
     </head>
     <body style = "margin-left:70px;background-color:gainsboro; width:800px;height:1000px;">
-    <div>
+    <div class = "MainContent">
         <div style="font-size: 50px; margin-bottom: 10px;">Osero
-        </div>  
+        </div> 
         <div>
             <dl class="option">
                 <dt>Options</dt>
@@ -234,6 +246,9 @@
             </canvas>
             <br>
         </div>
+    </div>
+    <div class="loading">
+        <img src = "image/support-loading.gif">
     </div>
     <script src="./js/jquery-3.6.0.min.js"></script>
     <script src="./js/osero.js" ></script>   
